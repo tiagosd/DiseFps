@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Capturas Papel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.dataTables.min.js"></script>
+        
+        
+        
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+            $(document).ready(function() {
+                $('#example2').DataTable();
+            } );
+        </script>
+
+        <style>
+			.page-header {
+			  margin: 0 0 20px;
+			}        
+            .bg-primary{
+                /*background-color: #ff751a;
+                margin-bottom: 0;
+                height: 70px;*/
+                background: rgba(255,175,75,1);
+                background: -moz-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,143,5,1) 52%, rgba(255,146,10,1) 55%, rgba(255,152,26,1) 57%, rgba(255,152,26,1) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,175,75,1)), color-stop(52%, rgba(255,143,5,1)), color-stop(55%, rgba(255,146,10,1)), color-stop(57%, rgba(255,152,26,1)), color-stop(100%, rgba(255,152,26,1)));
+                background: -webkit-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,143,5,1) 52%, rgba(255,146,10,1) 55%, rgba(255,152,26,1) 57%, rgba(255,152,26,1) 100%);
+                background: -o-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,143,5,1) 52%, rgba(255,146,10,1) 55%, rgba(255,152,26,1) 57%, rgba(255,152,26,1) 100%);
+                background: -ms-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,143,5,1) 52%, rgba(255,146,10,1) 55%, rgba(255,152,26,1) 57%, rgba(255,152,26,1) 100%);
+                background: linear-gradient(to bottom, rgba(255,175,75,1) 0%, rgba(255,143,5,1) 52%, rgba(255,146,10,1) 55%, rgba(255,152,26,1) 57%, rgba(255,152,26,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff981a', GradientType=0 );
+                margin-bottom: 0;
+                height: 60px;
+            }
+            #buttonBar{
+                margin-top: 0;
+                height: 7px;
+            }
+            #userCombo{
+                position: absolute;
+                right: 0px;
+                padding: 10px;
+            }
+            #btnHome{
+                position: absolute;
+                left: 0px;
+                padding: 10px;
+                margin-top: 5px;
+                background-color: transparent;
+                color: white;
+            }
+            #titleH1{
+                position: absolute;
+                left: 35px;
+                padding: 10px;
+                margin-top: 5px;
+                background-color: transparent;
+                color: white;
+            }
+            .razButton{
+                background-color: #ff920a;
+                color: white;
+                width: 200px;
+                margin-top: 5px;
+                margin-left: 10px;
+                -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
+                -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
+                box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
+            }
+            #jtInputs{
+                background-color: #e6f3ff;
+                padding: 0px;
+                border-color: #ff920a;
+                border-style: solid;
+                
+                -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
+                -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
+                box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
+            }
+            td{
+               padding: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="page-header">
+                <h1><img src="images/logo.gif" width="110px"/></h1>
+                <nav class="navbar navbar-dark bg-primary">
+                    <a href="index.html"><button id="btnHome" type="button" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    </button></a>
+                    <h1 id="titleH1">Produccion de servilleta empalmada y cortada en winder</h1>
+                    <div id="userCombo" class="btn-group"><a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perez, Juan <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/XMII/Illuminator?service=logout">Logout</a></li></ul>
+                    </div>
+                </nav>
+                <nav id="buttonBar" class="navbar navbar-light" style="background-color: #e3f2fd;">
+                    <a href="index.html"><button type="button" class="btn btn-default razButton">Captura de rollos</button></a>
+                    <a href="prodCutWinder.html"><button type="button" class="btn btn-default razButton">Produccion c. en winder</button></a>
+                    <a href="prodServilleta.html"><button type="button" class="btn btn-default razButton">Produccion de servilleta</button></a>
+                    <a href="prodServilleta2.html"><button type="button" class="btn btn-default razButton">Produccion de servilleta 2</button></a>
+                </nav>
+            </div>
+            <div class="jumbotron" id="jtInputs">
+                <table id="paramTable" >
+                    <tr>
+                        <td><div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Fecha de corte</span>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   10/08/2016  <span class="caret"></span>
+                                </button>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Turno de corte</span>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   1 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Cuadrilla</span>
+                                <input type="text" class="form-control" placeholder="8" aria-describedby="basic-addon1">
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Visualizar</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-print" aria-hidden="true"></span>&nbsp;&nbsp;Impresion</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Corridas</span>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   HG1035  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">HG1035</a></li>
+                                    <li><a href="#">HG1036</a></li>
+                                    <li><a href="#">HG1037</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Tipo de corte</span>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Seleccione  <span class="caret"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div class="panel-body">
+                <div class="panel panel-default" style="float: left; 
+                                                        height:100%;
+                                                        width:100%;
+                                                        padding:0;
+                                                        margin:0;">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><h4></h4>
+                        <div class="btn-group" role="group" aria-label="..." style="">
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                    <div style="width: 100%">
+                        <div class="panel-default" style="width: 47%; float: left">
+                            <div class="panel-heading"><h3>Rollo Jumbo 1</h3></div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">No. Rollo</span>
+                                <input type="text" class="form-control" placeholder="20168HG2020" aria-describedby="basic-addon1">
+                            </div>
+                            <table id="exampleX1" class="table table-striped table-bordered" cellspacing="0" width="100%" style="background-color: #e6f3ff">
+                                <thead>
+                                    <tr>
+                                        <th>Etiqueta</th>
+                                        <th>Cons.</th>
+                                        <th>Montura</th>
+                                        <th>Tiro</th>
+                                        <th>Peso Original</th>
+                                        <th>Rotacion Maquina</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr contenteditable="true" style="height: 20px">
+                                        <td>&nbsp;</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="panel-default" style="width: 47%; padding-right: 70px; float: right;">
+                            <div class="panel-heading"><h3>Rollo Jumbo 2</h3></div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">No. Rollo</span>
+                                <input type="text" class="form-control" placeholder="20168HG2021" aria-describedby="basic-addon1">
+                            </div>
+                            <table id="exampleX2" class="table table-striped table-bordered" cellspacing="0" width="100%" style="background-color: #e6f3ff">
+                            <thead>
+                                    <tr>
+                                        <th>Etiqueta</th>
+                                        <th>Cons.</th>
+                                        <th>Montura</th>
+                                        <th>Tiro</th>
+                                        <th>Peso Original</th>
+                                        <th>Rotacion Maquina</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr contenteditable="true" style="height: 20px">
+                                        <td>&nbsp;</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                
+<!--                SEGUNDA TABLA-->
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a data-toggle="tab" href="#prod" ><h4>Produccion cortada en Winder</h4></a></li>
+                    <li role="presentation"><a data-toggle="tab"  href="#merma" ><h4>Merma en winder</h4></a></li>
+                  </ul>
+                
+                
+                
+
+                <div class="panel panel-default" style="float: left; 
+                                                        height:100%;
+                                                        width:100%;
+                                                        padding:0;
+                                                        margin:0;">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><h4></h4>
+                        <div class="btn-group" role="group" aria-label="..." style="">
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                    
+                <div class="tab-content clearfix">
+                    <!--                    PRODUCCION-->
+                    <div id="prod" class="tab-pane active">
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>No. Rollo</th>
+                                    <th>Medida</th>
+                                    <th>Diametro Plgs</th>
+                                    <th>Diametro mm</th>
+                                    <th>Kgs</th>
+                                    <th>@Cve.Calidad</th>
+                                    <th>@Aceptado</th>
+                                    <th>@Rot.1</th>
+                                    <th>@Desc.Rot.1</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr contenteditable="true" style="height: 20px">
+                                    <td>&nbsp;</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="merma" class="tab-pane" >
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>No. Rollo</th>
+                                    <th>Rechazo</th>
+                                    <th>Origen</th>
+                                    <th>Barra</th>
+                                    <th>Total</th>
+                                    <th>Observaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr contenteditable="true" style="height: 20px">
+                                    <td>&nbsp;</td>
+                                    <td style="background-color: #ffc2b3"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        
+    </body>
+</html>
