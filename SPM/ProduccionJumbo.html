@@ -21,7 +21,10 @@ and open the template in the editor.
         <script src="js/bootstrap-datepicker.min.js"></script>
 		<script src="js/chosen.jquery.min.js"></script>
         
-        
+		
+		<script src="js/mindmup-editabletable.js"></script>
+		<script src="js/numeric-input-example.js"></script>
+		
         <script>
             $(document).ready(function() {
 				$('[data-rel="chosen"],[rel="chosen"]').chosen({search_contains: true});
@@ -226,8 +229,11 @@ and open the template in the editor.
             }
             #buttonBar{
                 margin-top: 0;
-                height: 7px;
+                height: 30px;
             }
+			#btnHeader{
+				height: 30px;
+			}
             #userCombo{
                 position: absolute;
                 right: 0px;
@@ -242,13 +248,14 @@ and open the template in the editor.
                 color: white;
             }
             #titleH1{
-                position: absolute;
-                left: 35px;
-                padding: 10px;
-                margin-top: 5px;
+                position: absolute;                             
                 background-color: transparent;
                 color: white;
             }
+			#imgHome{
+				position: absolute;
+				float: left;
+			}
             .razButton{
                 background-color: #ff920a;
                 color: white;
@@ -270,31 +277,40 @@ and open the template in the editor.
                 box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
             }
             td{
-               padding: 15px;
-            }
-            
+               padding: 13px;
+            }           
             
         </style>
     </head>
     <body>
         <div class="container-fluid">
-            <div class="page-header">
-                <h1><img src="images/LogoPSF.png" width="110px"/></h1>
-                <nav class="navbar navbar-dark bg-primary">
-                    <a href="index.html"><button id="btnHome" type="button" class="btn btn-default btn-lg">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    </button></a>
-                    <h1 id="titleH1">Captura de rollos</h1>
-                    <div id="userCombo" class="btn-group"><a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perez, Juan <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/XMII/Illuminator?service=logout">Logout</a></li></ul>
-                    </div>
+            
+			<div class="page-header" style="margin-top:10px">											
+							
+				<nav class="navbar" id="btnHeader">
+                    <a class="navbar-brand" href="ProduccionJumbo.html">
+						<img alt="Brand" src="images/LogoPSF.png" width="100px">					
+					</a>
+					
+					<nav class="navbar navbar-dark bg-primary" style="width: 90%; float: right; ">                										
+						<h2 id="titleH1" class="navbar-text">Captura de rollos</h2>											
+						<div id="userCombo" class="btn-group"><a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perez, Juan <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/XMII/Illuminator?service=logout">Logout</a></li></ul>
+						</div>
+					</nav>                 																
                 </nav>
-                <nav id="buttonBar" class="navbar navbar-light" style="background-color: #e3f2fd;">
+						
+				<nav id="buttonBar" >
                     <a href="index.html"><button type="button" class="btn btn-default razButton">Captura de rollos</button></a>
                     <a href="prodCutWinder.html"><button type="button" class="btn btn-default razButton">Produccion c. en winder</button></a>
                     <a href="prodServilleta.html"><button type="button" class="btn btn-default razButton">Produccion de servilleta</button></a>
-                    <a href="prodServilleta2.html"><button type="button" class="btn btn-default razButton">Produccion de servilleta 2</button></a>
+                    <a href="prodServilleta2.html"><button type="button" class="btn btn-default razButton">Produccion de servilleta 2</button></a>                                                                       
                 </nav>
-            </div>
+								
+			</div>	
+			
+		
+			
+			<div class="col-lg-9">
             <div class="jumbotron" id="jtInputs">
                 <table id="paramTable" >
                     <tr>
@@ -320,7 +336,10 @@ and open the template in the editor.
                                 </select>	
                             </div>
                         </td>
-                        <td><div class="input-group">
+                        
+                    </tr>
+                    <tr>
+						<td><div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">Inicio</span>
                                 <input type="text" id="iniTxt" class="form-control" aria-describedby="basic-addon1">
                             </div>
@@ -330,8 +349,6 @@ and open the template in the editor.
                                 <input  type="text" id="finTxt" class="form-control" aria-describedby="basic-addon1">
                             </div>
                         </td>
-                    </tr>
-                    <tr>
                         <td><div class="input-group col-xs-4">
                                 <span class="input-group-addon" id="basic-addon1">Material</span>
                                 <select id="selMateriales" data-rel="chosen" style="width: 250px;">
@@ -342,67 +359,162 @@ and open the template in the editor.
                         
                     </tr>
                 </table>
+				</div>
+				</div>
+				
+				<div class="col-lg-3">
+                    <div class="jumbotron panel-default" id="jtInputs">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Corridas en el Turno
+                        </div>
+                        <!-- /.panel-heading -->
+                        
+                            <div class="panel-body">
+                                <a href="#" class="list-group-item">
+                                    <i></i> 20164HG09376640
+                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i></i> 20164HG09376641
+                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i></i> 20164HG09376642
+                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                    </span>
+                                </a>                                                                                           
+                            </div>                                                                          
+                    </div>                   
+                </div>
+				
                 
-            </div>
+            
             <div class="panel-body">
                 
                 <div class="panel panel-default" style="width: 100%; float: left">
                     <!-- Default panel contents -->
                     <div class="panel-heading"><h4>Informacion de rollos</h4>
                     </div>
-                    <div class="panel-body">
-
-                    </div>
-                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%" data-toggle="table" data-url="/XMII/Illuminator?QueryTemplate=SPM%2FRollos%2FqryGetBatchesProduced&Stylesheet=%2FXMII%2FCM%2FSPM%2Fxs%2FIllumRowsetTestJson.xsl&Content-Type=text%2Fxml&Param.1=HG0947">
-                        <thead>
-                            <tr>
-                                <th data-field="NUM_ROLLO">No. Rollo</th>
-                                <th data-field="MATERIAL">Material</th>
-                                <th data-field="FECHA_CONTABLE">Fecha Cont</th>
-                                <th data-field="TURNO">Turno</th>
-                                <th data-field="OBSERVACIONES">Observaciones</th>
-                                <th data-field="FECHA_INICIO">Fecha Entrada</th>
-                                <th data-field="FECHA_FIN">Fecha Salida</th>
-                                <th data-field="VELOCIDAD_YANQUEE">Vel Yanquee</th>
-                                <th data-field="VELOCIDAD_ENRROLLADO">Vel Enrr</th>
-                                <th data-field="ROTURAS_TOT">Roturas Tot</th>
-                                <th data-field="ROTURAS_PAR">Roturas Par</th>
-                                <th data-field="RECHAZADO">Rechazado</th>
-                                <th data-field="DESTINO">Destino</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th data-field="NUM_ROLLO">No. Rollo</th>
-                                <th data-field="MATERIAL">Material</th>
-                                <th data-field="FECHA_CONTABLE">Fecha Cont</th>
-                                <th data-field="TURNO">Turno</th>
-                                <th data-field="OBSERVACIONES">Observaciones</th>
-                                <th data-field="FECHA_INICIO">Fecha Entrada</th>
-                                <th data-field="FECHA_FIN">Fecha Salida</th>
-                                <th data-field="VELOCIDAD_YANQUEE">Vel Yanquee</th>
-                                <th data-field="VELOCIDAD_ENRROLLADO">Vel Enrr</th>
-                                <th data-field="ROTURAS_TOT">Roturas Tot</th>
-                                <th data-field="ROTURAS_PAR">Roturas Par</th>
-                                <th data-field="RECHAZADO">Rechazado</th>
-                                <th data-field="DESTINO">Destino</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+     
+                    <table id="mainTable" class="table table-striped">
+						<thead>
+							<tr>
+								<th data-field="NUM_ROLLO">No. Rollo</th>
+								<th data-field="MATERIAL">Material</th>
+								<th data-field="FECHA_CONTABLE">Fecha Cont</th>
+								<th data-field="TURNO">Turno</th>
+								<th data-field="OBSERVACIONES">Observaciones</th>
+								<th data-field="FECHA_INICIO">Fecha Entrada</th>
+								<th data-field="FECHA_FIN">Fecha Salida</th>
+								<th data-field="VELOCIDAD_YANQUEE">Vel Yanquee</th>
+								<th data-field="VELOCIDAD_ENRROLLADO">Vel Enrr</th>
+								<th data-field="ROTURAS_TOT">Roturas Tot</th>
+								<th data-field="ROTURAS_PAR">Roturas Par</th>
+								<th data-field="RECHAZADO">Rechazado</th>
+								<th data-field="DESTINO">Destino</th>
+							</tr>
+						</thead>
+						<tbody>
+						  <tr><td>20164HG09376640</td><td>100</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+						  <tr><td>20164HG09376641</td><td>330</td><td>240</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+						  <tr><td>20164HG09376642</td><td>430</td><td>540</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+						  <tr><td>20164HG09376643</td><td>100</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+						  <tr><td>20164HG09376644</td><td>330</td><td>240</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+						</tbody>
+						<tfoot><tr><th><strong>TOTAL</strong></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
+					  </table>
                 </div>   
                 
                 
+				
+			
+			
+			
+			
+				
+				
 <!--                SEGUNDA TABLA-->
-
+                            
+            </div>           
+            
+		<!--BOTONES BAJOS-->
+		
+        <div class="col-lg-12">    
+		<div class="jumbotron" id="jtInputs" style="float: bottom">
+					
+                <table id="paramTable" >
+                    <tr>
+                        <td><div class="input-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>&nbsp;&nbsp;No. Rollo</button>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>&nbsp;&nbsp;Tot. Turno</button>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Mermas</button>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>&nbsp;&nbsp;Corridas</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="input-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Min. Inicio</button>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Prod. Cortada Winder</button>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;&nbsp;Tmpo. Mto.</button>
+                            </div>
+                        </td>
+                        <td><div class="input-group">
+                                
+                            </div>
+                        </td>
+                    </tr>
+                </table>
                 
-            
-            </div>
-            
-            
-<!--            BOTONES BAJOS-->
-            
         </div>
-        
+		</div>
+						
+		</div>	
+           
+       
+<script>
+  $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+  $('#textAreaEditor').editableTableWidget({editor: $('<textarea>')});
+  window.prettyPrint && prettyPrint();
+</script>
+<div id="fb-root"></div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37452180-6', 'github.io');
+  ga('send', 'pageview');
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+ </script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+	   
         
     </body>
 </html>
