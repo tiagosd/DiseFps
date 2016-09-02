@@ -28,7 +28,6 @@ and open the template in the editor.
         <script>
             $(document).ready(function() {
 				$('[data-rel="chosen"],[rel="chosen"]').chosen({search_contains: true});
-
                 //$('#example').DataTable();
                 //$('#example2').DataTable();
                 $('.input-group .date').datepicker({
@@ -208,14 +207,14 @@ and open the template in the editor.
             
         </script>
 
-        <style>
+      <style>
 			.page-header {
 			  margin: 0 0 20px;
 			}        
             .bg-primary{
                 /*background-color: #ff751a;
                 margin-bottom: 0;
-                height: 70px;*/
+                height: 70px;*/				
                 background: rgba(255,175,75,1);
                 background: -moz-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,143,5,1) 52%, rgba(255,146,10,1) 55%, rgba(255,152,26,1) 57%, rgba(255,152,26,1) 100%);
                 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,175,75,1)), color-stop(52%, rgba(255,143,5,1)), color-stop(55%, rgba(255,146,10,1)), color-stop(57%, rgba(255,152,26,1)), color-stop(100%, rgba(255,152,26,1)));
@@ -229,33 +228,19 @@ and open the template in the editor.
             }
             #buttonBar{
                 margin-top: 0;
-                height: 30px;
+                height: 7px;
             }
-			#btnHeader{
-				height: 30px;
-			}
             #userCombo{
                 position: absolute;
                 right: 0px;
                 padding: 10px;
-            }
-            #btnHome{
-                position: absolute;
-                left: 0px;
-                padding: 10px;
-                margin-top: 5px;
-                background-color: transparent;
-                color: white;
-            }
+            }            
             #titleH1{
-                position: absolute;                             
-                background-color: transparent;
-                color: white;
-            }
-			#imgHome{
 				position: absolute;
-				float: left;
-			}
+			    left: 120px;							
+				background-color: transparent;
+				color: white;				
+            }
             .razButton{
                 background-color: #ff920a;
                 color: white;
@@ -277,92 +262,112 @@ and open the template in the editor.
                 box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
             }
             td{
-               padding: 13px;
-            }           
-            
+               padding: 10px;
+			   padding-left: 40px;
+            }
+			
+			.navbar-top-links li:last-child {
+			  margin-right: 15px;
+			}
+			.navbar-top-links .dropdown-messages,
+			.navbar-top-links .dropdown-tasks,
+			.navbar-top-links .dropdown-alerts {
+			  width: 310px;
+			  min-width: 0;
+			}			
         </style>
     </head>
     <body>
         <div class="container-fluid">
-            
-			<div class="page-header" style="margin-top:10px">											
-							
-				<nav class="navbar" id="btnHeader">
-                    <a class="navbar-brand" href="ProduccionJumbo.html">
-						<img alt="Brand" src="images/LogoPSF.png" width="100px">					
-					</a>
+            <div class="page-header" style="margin-top:10px">
+                <!--<h1><img src="images/LogoPSF.png" width="110px"/></h1>-->
+                <nav class="navbar navbar-dark bg-primary">
+                
+					<div class="navbar-header">
+					  <a class="navbar-brand" href="ProduccionJumbo.html">
+						<img alt="Brand" src="images/LogoPSFT.png">					
+					  </a>					  					  					  
+					</div>
 					
-					<nav class="navbar navbar-dark bg-primary" style="width: 90%; float: right; ">                										
-						<h2 id="titleH1" class="navbar-text">Captura de rollos</h2>											
-						<div id="userCombo" class="btn-group"><a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perez, Juan <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/XMII/Illuminator?service=logout">Logout</a></li></ul>
-						</div>
-					</nav>                 																
-                </nav>
-						
-				<nav id="buttonBar" >
+					<h2 id="titleH1" class="navbar-text">Captura de rollos</h2>
+                                        
+                    <div id="userCombo" class="btn-group"><a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perez, Juan <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/XMII/Illuminator?service=logout">Logout</a></li></ul>
+                    </div>
+                </nav> 
+                <nav id="buttonBar" class="navbar navbar-light" style="background-color: #e3f2fd;">
                     <a href="index.html"><button type="button" class="btn btn-default razButton">Captura de rollos</button></a>
                     <a href="prodCutWinder.html"><button type="button" class="btn btn-default razButton">Produccion c. en winder</button></a>
                     <a href="prodServilleta.html"><button type="button" class="btn btn-default razButton">Produccion de servilleta</button></a>
                     <a href="prodServilleta2.html"><button type="button" class="btn btn-default razButton">Produccion de servilleta 2</button></a>                                                                       
-                </nav>
-								
-			</div>	
+                </nav>							
+			</div>
 			
-		
 			
-			<div class="col-lg-9">
-            <div class="jumbotron" id="jtInputs">
-                <table id="paramTable" >
-                    <tr>
-                        <td><div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">Fecha</span>
-								<div class="input-group date">
-								  <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-								</div>
-                                </button>
-                            </div>
-                        </td>
-                        <td><div class="input-group" style="height: 26px;">
-                                <span class="input-group-addon" id="basic-addon1">Turno</span>
-   					            <select id="selTurnos" data-rel="chosen">
-                              		<option value="" selected>Seleccione una opcion ...</option>
-                                </select>	
-                            </div>
-                        </td>
-                        <td><div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">Cuadrilla</span>
-   					            <select id="selCuadrillas" data-rel="chosen">
-                              		<option value="" selected>Seleccione una opcion ...</option>
-                                </select>	
-                            </div>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-						<td><div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">Inicio</span>
-                                <input type="text" id="iniTxt" class="form-control" aria-describedby="basic-addon1">
-                            </div>
-                        </td>
-                        <td><div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">Termino</span>
-                                <input  type="text" id="finTxt" class="form-control" aria-describedby="basic-addon1">
-                            </div>
-                        </td>
-                        <td><div class="input-group col-xs-4">
-                                <span class="input-group-addon" id="basic-addon1">Material</span>
-                                <select id="selMateriales" data-rel="chosen" style="width: 250px;">
-                              		<option value="" selected>Seleccione una opcion ...</option>
-                                </select>
-                            </div>
-                        </td>
-                        
-                    </tr>
-                </table>
-				</div>
-				</div>
-				
-				<div class="col-lg-3">
+			<div id="page-wrapper">
+                       
+            <div class="row">
+                <div class="col-lg-8">
+						<div class="jumbotron panel-default" id="jtInputs">	
+
+							<div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Opciones de Filtrado
+							</div>
+						
+							<table id="paramTable" >
+								<tr>
+									<td><div class="input-group">
+											<span class="input-group-addon" id="basic-addon1">Fecha</span>
+											<div class="input-group date">
+											  <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+											</div>
+											</button>
+										</div>
+									</td>
+									<td></td>
+									<td><div class="input-group" style="height: 26px;">
+											<span class="input-group-addon" id="basic-addon1">Turno</span>
+											<select id="selTurnos" data-rel="chosen">
+												<option value="" selected>Seleccione una opcion ...</option>
+											</select>	
+										</div>
+									</td>																							
+								</tr>
+								<tr>
+									<td><div class="input-group">
+											<span class="input-group-addon" id="basic-addon1">Inicio</span>
+											<input type="text" id="iniTxt" class="form-control" aria-describedby="basic-addon1">
+										</div>
+									</td>	
+									<td></td>									
+									<td><div class="input-group">
+											<span class="input-group-addon" id="basic-addon1">Termino</span>
+											<input  type="text" id="finTxt" class="form-control" aria-describedby="basic-addon1">
+										</div>	
+									</td>																		
+								</tr>
+								<tr>
+									<td><div class="input-group">
+											<span class="input-group-addon" id="basic-addon1">Cuadrilla</span>
+											<select id="selCuadrillas" data-rel="chosen">
+												<option value="" selected>Seleccione una opcion ...</option>
+											</select>	
+										</div>
+									</td>	
+									<td></td>									
+									<td><div class="input-group col-xs-4">
+											<span class="input-group-addon" id="basic-addon1">Material</span>
+											<select id="selMateriales" data-rel="chosen" style="width: 250px;">
+												<option value="" selected>Seleccione una opcion ...</option>
+											</select>
+										</div>
+									</td>									
+								</tr>								
+							</table>					
+						</div>
+						
+                </div>
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-4">
                     <div class="jumbotron panel-default" id="jtInputs">
                         <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Corridas en el Turno
@@ -385,9 +390,15 @@ and open the template in the editor.
                                     <span class="pull-right text-muted small"><em>27 minutes ago</em>
                                     </span>
                                 </a>                                                                                           
-                            </div>                                                                          
-                    </div>                   
+                            </div>
+                                                    
+                        <!-- /.panel-body -->
+                    </div>
+                   
                 </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
 				
                 
             
@@ -426,65 +437,9 @@ and open the template in the editor.
 						<tfoot><tr><th><strong>TOTAL</strong></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 					  </table>
                 </div>   
-                
-                
-				
-			
-			
-			
-			
-				
-				
-<!--                SEGUNDA TABLA-->
-                            
-            </div>           
-            
-		<!--BOTONES BAJOS-->
-		
-        <div class="col-lg-12">    
-		<div class="jumbotron" id="jtInputs" style="float: bottom">
-					
-                <table id="paramTable" >
-                    <tr>
-                        <td><div class="input-group">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>&nbsp;&nbsp;No. Rollo</button>
-                            </div>
-                        </td>
-                        <td><div class="input-group">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>&nbsp;&nbsp;Tot. Turno</button>
-                            </div>
-                        </td>
-                        <td><div class="input-group">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;&nbsp;Mermas</button>
-                            </div>
-                        </td>
-                        <td><div class="input-group">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>&nbsp;&nbsp;Corridas</button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div class="input-group">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;&nbsp;Min. Inicio</button>
-                            </div>
-                        </td>
-                        <td><div class="input-group">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Prod. Cortada Winder</button>
-                            </div>
-                        </td>
-                        <td><div class="input-group">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;&nbsp;Tmpo. Mto.</button>
-                            </div>
-                        </td>
-                        <td><div class="input-group">
                                 
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                
-        </div>
-		</div>
+            </div>           
+          
 						
 		</div>	
            
